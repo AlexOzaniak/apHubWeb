@@ -364,6 +364,13 @@
         .photo-engine { grid-template-columns: 1fr; }
       }
     </style>
+    <style>
+      /* Small UI controls: theme toggle and copy button */
+      .topbar-actions { display: flex; align-items: center; gap: 8px; }
+      .code-with-copy { display: flex; gap: 8px; align-items: center; }
+      .code-with-copy code { flex: 1; }
+      #cloneCopyBtn { white-space: nowrap; }
+    </style>
   </head>
   <body>
     <header class="topbar">
@@ -374,6 +381,9 @@
           <a href="#tech">Tech Stack</a>
           <a href="#github">GitHub</a>
         </nav>
+        <div class="topbar-actions">
+          <button id="themeToggle" class="btn secondary" aria-label="Prepnúť motív">🌓</button>
+        </div>
       </div>
     </header>
 
@@ -396,7 +406,10 @@
 
           <div class="hero-photo-wrapper display-card" onclick="openLightbox(this)">
             <div class="hero-image-container">
-              <img src="../fotky/aps2.png" data-fallback="fotky/aps2.png" alt="Hlavný telemetrický panel (Main Dashboard)" loading="eager"/>
+            <div class="code-with-copy">
+              <code id="cloneCmd">git clone https://github.com/djpablosk/A-P-SmartHub.git</code>
+              <button id="cloneCopyBtn" class="btn secondary" title="Kopírovať príkaz">Kopírovať</button>
+            </div>
             </div>
             <div class="hero-caption">
               <strong>Hlavný telemetrický dashboard (Main Dashboard)</strong>
@@ -676,6 +689,54 @@
           closeLightbox();
         }
       });
+
+      // Theme toggle and persistence
+      (function() {
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const key = 'apsh_theme';
+
+        function applyTheme(t) {
+          if (t === 'light') root.setAttribute('data-theme', 'light');
+          else root.setAttribute('data-theme', 'dark');
+        }
+
+        // initialize
+        try {
+          const stored = localStorage.getItem(key);
+          applyTheme(stored || 'dark');
+        } catch(e) {}
+
+        if (themeToggle) themeToggle.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+          const next = cur === 'light' ? 'dark' : 'light';
+          applyTheme(next);
+          try { localStorage.setItem(key, next); } catch(e) {}
+        });
+      })();
+
+      // Copy clone command
+      (function(){
+        const btn = document.getElementById('cloneCopyBtn');
+        const codeEl = document.getElementById('cloneCmd');
+        if (!btn || !codeEl) return;
+        btn.addEventListener('click', async (e)=>{
+          const text = codeEl.textContent.trim();
+          try {
+            await navigator.clipboard.writeText(text);
+            const orig = btn.textContent;
+            btn.textContent = 'Skopírované!';
+            setTimeout(()=> btn.textContent = orig, 1800);
+          } catch (err) {
+            // fallback: select and prompt
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); btn.textContent = 'Skopírované!'; }
+            catch(e){ alert('Skopírovanie zlyhalo — skopírujte ručne'); }
+            ta.remove();
+          }
+        });
+      })();
     </script>
   </body>
 </html>

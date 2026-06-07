@@ -300,18 +300,20 @@
         gap: 16px;
         align-items: flex-start;
       }
-      .avatar {
-        width: 64px;
-        height: 64px;
-        border-radius: 18px;
-        flex: 0 0 auto;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, var(--green), var(--green-2));
-        color: #041107;
-        font-weight: 900;
-        letter-spacing: 0.04em;
-      }
+     .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(52, 211, 153, 0.3);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
       .person h3 { margin-bottom: 6px; }
       .person .role { margin: 0 0 10px; color: var(--green-2); font-size: 0.92rem; font-weight: 700; }
 
@@ -560,26 +562,67 @@
         </div>
       </section>
 
-      <section class="section" id="creators">
-        <div class="wrap">
-          <h2>Autori projektu</h2>
-          <p class="section-copy">Práca na projekte je rozdelená medzi backend a frontend/dizajn.</p>
-          <div class="people">
-            <div class="card pad person">
-              <div class="avatar">Alex</div>
-              <div>
-                <h3>Alex Ozaniak</h3>
-                <p class="role">Backend, logika a jadro aplikácie</p>
-                <p>Spravuje serverovú časť a aplikačnú logiku, ktorá zaisťuje čistý chod celého projektu.</p>
-              </div>
-            </div>
-            <div class="card pad person">
-              <div class="avatar">Patrik</div>
-              <div>
-                <h3>Patrik Smržo</h3>
-                <p class="role">Frontend and Design</p>
-                <p>Zameriava sa na používateľské rozhranie, prezentáciu a vizuálne smerovanie projektu.</p>
-              </div>
+     <section class="section" id="creators">
+  <div class="wrap">
+    <h2>Autori projektu</h2>
+    <p class="section-copy">
+      Práca na projekte je rozdelená medzi backend a frontend/dizajn.
+    </p>
+
+   <div class="card pad person">
+  <div class="avatar">
+    <img src="../fotky/Ozaniak.jpg" alt="Fotografia Alexa Ozaniaka" loading="lazy">
+  </div>
+
+  <div>
+    <h3>Alex Ozaniak</h3>
+    <p class="role">Backend, logika a jadro aplikácie</p>
+
+    <p>
+      Spravuje serverovú časť a aplikačnú logiku, ktorá zaisťuje
+      čistý chod celého projektu.
+    </p>
+
+    <br>
+
+    <a
+      class="btn secondary"
+      href="https://www.linkedin.com/in/alex-ozaniak-8356433bb/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      LinkedIn
+    </a>
+  </div>
+</div>
+<br>
+      <div class="card pad person">
+        <div class="avatar">
+          <img src="../fotky/Smrzo.jpg" alt="Fotografia Patrika Smrža" loading="lazy" />
+        </div>
+        <div>
+          <h3>Patrik Smržo</h3>
+          <p class="role">Frontend and Design</p>
+          <p>
+            Zameriava sa na používateľské rozhranie, prezentáciu a vizuálne
+            smerovanie projektu.
+          </p>
+          <br />
+
+          <a
+            class="btn secondary"
+            href="https://www.linkedin.com/in/patrik-smr%C5%BEo-027ab33bb/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
             </div>
           </div>
         </div>

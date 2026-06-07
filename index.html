@@ -21,7 +21,7 @@
         --line-strong: rgba(52, 211, 153, 0.3);
         --text: #e8f7ee;
         --muted: #9bb3a4;
-        --green: #22c55e;
+        --green: #800080;
         --green-2: #34d399;
         --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
         --radius: 20px;
@@ -36,7 +36,7 @@
         background:
           radial-gradient(circle at top left, rgba(34, 197, 94, 0.14), transparent 26%),
           radial-gradient(circle at top right, rgba(52, 211, 153, 0.08), transparent 22%),
-          linear-gradient(180deg, #050805 0%, #070d08 100%);
+          linear-gradient(180deg, #080508 0%, #070d08 100%);
         color: var(--text);
       }
 
@@ -95,12 +95,12 @@
       .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
         padding: 8px 12px;
-        border-radius: 999px;
+        border-radius: 24px;
         border: 1px solid var(--line);
         color: var(--green-2);
-        background: rgba(34, 197, 94, 0.06);
+        background: rgba(219, 5, 5, 0.06);
         font-size: 0.82rem;
         font-weight: 700;
         letter-spacing: 0.12em;
@@ -126,13 +126,13 @@
         justify-content: center;
         min-height: 46px;
         padding: 0 16px;
-        border-radius: 999px;
+        border-radius: 23px;
         border: 1px solid var(--line);
         font-weight: 700;
         cursor: pointer;
         transition: all 0.2s ease;
       }
-      .btn:hover { border-color: var(--green-2); }
+      .btn:hover { color: var(--green-2); border-color: var(--green-2); }
       .btn.primary {
         background: linear-gradient(135deg, var(--green), var(--green-2));
         color: #041107;
@@ -293,7 +293,7 @@
       .people {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+        gap: 24px;
       }
       .person {
         display: flex;
@@ -336,8 +336,8 @@
         padding: 14px 16px;
         border-radius: 16px;
         border: 1px solid var(--line);
-        background: #081009;
-        color: #dff7e6;
+        background: #000000a4;
+        color: #06eb25;
         overflow: auto;
         font-family: Consolas, "JetBrains Mono", monospace;
       }
@@ -351,6 +351,7 @@
         justify-content: space-between;
         gap: 16px;
         flex-wrap: wrap;
+        
       }
 
       @media (max-width: 900px) {
@@ -388,7 +389,7 @@
             <div class="eyebrow">Patrik Smržo</div>
             <h1>A&P Smarthub</h1>
             <p class="lead">
-              A-P-SmartHub je projekt pre zjednotené riadenie inteligentnej domácnosti postavený na C# a .NET Framework. 
+              A&P SmartHub je projekt pre zjednotené riadenie inteligentnej domácnosti postavený na C# a .NET Framework. 
             </p>
             <div class="actions">
               <a class="btn primary" href="https://github.com/djpablosk/A-P-SmartHub" target="_blank" rel="noreferrer">Zobraziť na GitHub-e</a>
@@ -440,7 +441,7 @@
             
             <div class="card display-card" onclick="openLightbox(this)">
               <div class="media-box">
-                //test
+                
                 <img src="../fotky/aps.png" data-fallback="fotky/aps.png" alt="AI chat asistent inteligentného hubu" loading="lazy" />
               </div>
               <div class="meta">
@@ -670,9 +671,10 @@
 
     <footer class="footer">
       <div class="wrap footer-inner">
-        <span>A&P-SmartHub</span>
-        <span>Tuto stranku mi pomohla spravit AI <3 </span>
-        <span>©2026 vsetky prava vyhradene</span>
+       
+     <br>  <span>A&P SmartHub - Inteligent Living Starts here ❤️</span> <br>
+       
+        
       </div>
     </footer>
 
